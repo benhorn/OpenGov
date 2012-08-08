@@ -1,0 +1,104 @@
+table {
+	background-color:#ffffff;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;	
+}
+
+th,td {
+	vertical-align: middle;
+}
+
+thead tr {
+	background-color: #dddddd;
+	text-align: center;
+	vertical-align: middle;
+	height:20px;
+}
+
+th.sorted {
+	background-color: #bbbbbb;
+}
+
+th a,th a:visited {
+	color: black;
+}
+
+th a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 94%;
+}
+
+th.sortable a {
+	background-image: url(../images/arrow_off.png);
+	background-repeat: no-repeat;	
+}
+
+th.order1 a {
+	background-image: url(../images/arrow_down.png);
+	background-repeat: no-repeat;	
+}
+
+th.order2 a {
+	background-image: url(../images/arrow_up.png);
+	background-repeat: no-repeat;	
+}
+
+tr.odd {
+	background-color: #fff
+}
+
+tr.tableRowEven,tr.even {
+	background-color: #eee
+}
+
+div.exportlinks {
+	background-color: #ffffff;
+	padding: 2px 4px 2px 4px;
+	margin: 2px 0 10px 0;
+	width: 94%;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;	
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	cursor: pointer;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #000000;
+}
+
+span.excel {
+	background-image: url(../images/ico_file_excel.png);
+	background-repeat: no-repeat;
+}
+
+span.csv {
+	background-image: url(../images/ico_file_csv.png);
+	background-repeat: no-repeat;
+}
+
+span.xml {
+	background-image: url(../images/ico_file_xml.png);
+	background-repeat: no-repeat;	
+}
+
+span.pdf {
+	background-image: url(../images/ico_file_pdf.png);
+	background-repeat: no-repeat;
+}
+
+span.rtf {
+	background-image: url(../images/ico_file_rtf.png);
+	background-repeat: no-repeat;	
+}

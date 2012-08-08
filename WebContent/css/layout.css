@@ -1,0 +1,814 @@
+body {
+   background: #f3f2e6 url("../images/bg_page.png") repeat-x top;
+   font-family: Arial, sans-serif;
+   font-size: 13px;
+   color: #666666;
+   margin: 0;
+}
+
+.Header,
+.AboveSiteContent {
+  font-size: 16px;
+}
+
+a {
+   color: #0a5297;
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: underline;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+.Indent1 {
+   margin-left: 2em;
+}
+
+.URL {
+   word-wrap: break-word;
+}
+
+span.text-widget,
+textarea,
+input[type="password"],
+input[type="text"] {
+   border: 1px solid #87a4c2;
+   padding: 0.2em;
+}
+
+fieldset legend {
+   font-weight: bold;
+   font-size: 1.2em;
+}
+form .summary,
+form .row {
+   margin: 1.2em 0;
+}
+
+form .summary,
+.error,
+.errors,
+span.required {
+   color: red;
+}
+
+form h1 {
+   font-size: 100%;
+   font-weight: normal;
+}
+
+dt {
+   font-weight: bold;
+   margin-top: 1em;
+}
+
+dd {
+   margin-left: 0;
+}
+
+form .label {
+   color: #333;
+}
+form .formHelp {
+   color: #999;
+}
+
+.Heading,
+.Portlet h3 {
+  font-size: 1em;
+  margin: 0;
+}
+
+.Portlet {
+   width: 247px;
+   margin-bottom: 0.92em;
+}
+.Portlet h3 {
+   color: #cc0033;
+   font-weight: normal;
+   font-size: 130%;
+   padding-top: 0.77em;
+}
+.Portlet .Top {
+   background: url("../images/bg_quick_top.jpg") no-repeat center top;
+   height: 6px;
+}
+.Portlet .Content {
+   padding: 0 0.77em;
+   border-left: 1px solid #cdd9e2;
+   border-right: 1px solid #cdd9e2;
+}
+.Portlet .Content dl,
+.Portlet .Content p {
+   margin-bottom: 0;
+}
+.Portlet .Bottom {
+   background: url("../images/bg_quick_bottom.gif") no-repeat center bottom;
+   height: 19px;
+}
+
+.TODO {
+  background: red;
+}
+
+.Cloak,
+.required-info {
+  display: none;
+}
+.ClearFloating {
+  clear: both;
+}
+
+.BodyWrapper {
+   margin: 0 auto;
+   width: 980px;
+   background: url("../images/bg_wrap.png") repeat-y;
+   border-top: 0;
+}
+
+.Header {
+   padding: 0;
+   height: 112px; /* because of the fixed height bg */
+   background: url("../images/bg_header.png") no-repeat top;
+}
+
+.Header .Title {
+   float: left;
+   padding-top: 9px;
+}
+.Header .Logo {
+   float: left;
+   padding: 10px 0 0 24px;
+}
+
+.Huge,
+.Title h1 {
+   color: #0d3a7d;
+   text-transform: uppercase;
+   margin-bottom: 0;
+   font-size: 1.56em;
+   font-weight: bold;
+}
+
+.Medium,
+.Title h2 {
+   color: #8aa8c0;
+   text-transform: uppercase;
+   font-size: 1em;
+   margin-top: 0;
+   text-align: center;
+}
+.Medium {
+   text-align: left;
+}
+
+.TitleActions {
+   float: right;
+   margin: 0 3em 0 0;
+   padding: 0;
+}
+.TitleActions li {
+   display: inline;
+   text-transform: uppercase;
+   font-weight: bold;
+}
+
+.PageTitle {
+   margin: 0 3em;
+   margin-top: 2.56em;
+   color: #cc0033;
+}
+
+.PageTitle h1 {
+   border-bottom: 1px solid #ffcece;
+}
+
+.ContextInformation {
+  width: 19em;
+  float: right;
+  margin-right: 3em;
+}
+
+.SiteContent {
+   margin: 0 3em;
+   width: 63%;
+   min-height: 30em;
+}
+
+.WideSiteContent {
+   margin: 0 3em;
+}
+
+.Footer {
+   margin: 0 3em;
+   margin-top: 5em;
+   border-top: 2px solid #E21A23;
+   clear: both;
+}
+.VisualPageEnd {
+   width: 980px;
+   margin: 0 auto;
+   background: url("../images/bg_pageend.png") no-repeat bottom;
+   height: 26px;
+}
+.MooballFooter {
+    float: right;
+    width: 200px;
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: #CCC;
+}
+.MooballLogo {
+    margin-top: 7px;
+}
+.FooterLogo {
+   float: right;
+}
+
+.SiteContent .button-field,
+.WideSiteContent .button-field,
+.Button {
+  background: #87a4c2;
+  color: white;
+  padding: 0.4em;
+  border: 0;
+}
+
+.Import.Button {
+  background: #019934;
+  font-size: large;
+}
+
+.Delete.Button {
+  background: #cc0001;
+}
+
+.Search.Button {
+  padding: 0.2em;
+}
+
+/* publication upload form */
+#publication-upload-form {
+  background-color: #c2cedc;
+  padding: 1em;
+  padding-bottom: 3em;
+  color: #2c2c2c;
+}
+#publication-upload-form fieldset {
+  border: 0;
+}
+#publication-upload-form .text-widget {
+  border: 1px solid #94999d;
+}
+#publication-upload-form .text-widget.autocomplete.yui-ac-container {
+    border: 0;
+}
+#publication-upload-form .textarea-widget {
+  width: 100%;
+  border: 1px solid #94999d;
+}
+#publication-upload-form .submit-widget {
+  background: #003466;
+  float: right;
+}
+
+
+
+/* frontpage */
+h2.FrontPage {
+  color: #0a5297;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+h3.FrontPage {
+  font-size: 1em;
+  font-weight: normal;
+  margin-top: 0;
+  color: #2c2c2c;
+}
+.FrontpageItem {
+  border-top: 3px solid #ededed;
+  color: #2c2c2c;
+  margin-top: 1.63em;
+}
+.FrontpageItem h4 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+.FrontpageItem .FrontpageItemDate {
+  margin-top: 0.75em;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.FrontpageItem dl dd,
+.FrontpageItem dl dt {
+  display: inline;
+}
+.FrontpageItem dl dd {
+  border-right: 1px solid #2c2c2c;
+  padding-right: 0.5em;
+}
+.FrontpageItem dl dt {
+  padding-left: 0.31em;
+  text-transform: uppercase;
+}
+.FrontpageItem dl dt.Start {
+  padding-left: 0;
+}
+.FrontpageItem dl dd.End {
+    border: 0;
+}
+.FrontpageItem dl {
+  margin-top: 0;
+  margin-bottom: 0.13em;
+}
+.FrontpageItem .pagetext {
+  margin-top: 0;
+}
+
+#advanced-search-form {
+  background: #87a4c2;
+  padding: 2em;
+  color: white;
+}
+#advanced-search-form #form-buttons-search {
+  margin-top: 1.2em;
+  float: right;
+  background: #003466;
+}
+#advanced-search-form #form-widgets-text-row .label .required,
+#advanced-search-form #form-widgets-text-row .label label {
+    color: white;
+}
+#advanced-search-form #form-widgets-text {
+  width: 33em;
+  border: 1px solid #003466;
+  padding: 0.4em;
+}
+#advanced-search-form  fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  margin-top: 1.75em;
+}
+#advanced-search-form fieldset legend {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#advanced-search-form fieldset .row {
+  float: left;
+  margin-right: 1em;
+}
+#advanced-search-form fieldset .row label {
+  display: None;
+}
+#form-widgets-agency {
+  width: 34em;
+}
+
+
+
+/* quick search */
+.SearchForm {
+  float: right;
+  padding: 3px 20px 0 0;
+  position: relative;
+}
+#quicksearch {
+    padding: 2.44em 0 0.94em;
+}
+.SearchForm .text-widget {
+    width: 200px;
+    padding: 4px 2px 7px 30px;
+    margin-right: 6em;
+    margin-top: -2.2em;
+    border: 1px solid #89B0CD;
+    background: #FFF url("../images/search_icon.gif") no-repeat scroll 2px 2px;
+    float: left;
+}
+.SearchForm #form-widgets-text-row {
+    margin: 0;
+}
+.SearchForm .label {
+  visibility: hidden;
+}
+.SearchForm #form-buttons-search {
+    height: 30px;
+    float: right;
+    margin-top: 1.2em;
+}
+
+
+
+/* inbox */
+#table-buttons-import {
+  background: #019934;
+}
+#table-buttons-delete {
+  margin-left: 3em;
+  background: #cc0000;
+}
+
+
+
+/* catalogue */
+#catalogue-form h1 {
+  font-size: 1.2em;
+}
+#catalogue-form {
+  background: #c2cedc;
+  padding: 2em;
+  padding-top: 1em;
+  margin-bottom: 2em;
+  color: black;
+}
+#catalogue-form .row {
+  float: left;
+  margin-right: 1em;
+}
+#catalogue-form .buttons {
+  margin-top: 13em;
+}
+#catalogue-form #form-buttons-filter {
+  background: #003466;
+}
+#catalogue-form #form-widgets-agency {
+  width: 30em;
+}
+
+.FTPInfo a {
+  word-wrap: break-word;
+}
+.UserInfo a {
+  display: block;
+  text-align: right;
+}
+
+
+
+/* login form */
+#loginform {
+  background-color: #ededed;
+  padding: 1.4em;
+  padding-bottom: 6.55em;
+}
+#loginform .LoginMessage {
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+#loginform .linkRow {
+  float: right;
+  border-left: 3px solid #003466;
+  width: 21em;
+  margin-top: 3em;
+  padding: 0 0 6em 2.88em;
+}
+#loginform .linkRow h3 {
+  margin-top: 0;
+}
+#loginform .row {
+  margin-left: 1.8em;
+}
+#login-row {
+  margin-bottom: 2.56em;
+}
+#loginform .row input {
+  width: 14.56em;
+  border: 1px solid #999;
+}
+#loginform .label {
+  font-weight: bold;
+}
+#loginform .buttons {
+  margin-top: 1.8em;
+  width: 17em;
+}
+#buttons-login {
+  float: right;
+  text-transform: uppercase;
+  background-color: #003466;
+  padding: 0.5em 1em;
+}
+
+/* metadata form */
+#form-widgets-fog-from {
+  width: 16em;
+}
+#metadata fieldset {
+  border: 0;
+  padding: 0;
+}
+#metadata .label {
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+#metadata .formHelp,
+#metadata .widget {
+  margin-left: 1em;
+}
+span.text-widget,
+#metadata .text-widget {
+  width: 100%;
+}
+span.text-widget {
+  display: block;
+  background: #ededed;
+  color: #666;
+}
+
+.yui-skin-sam .text-widget.yui-ac-input {
+  position: static;
+}
+#metadata .textarea-widget {
+  width: 100%;
+  height: 10em;
+}
+#metadata .buttons {
+  margin-top: 2em;
+}
+
+.DocumentActions {
+  background-color: #d3f0d4;
+  border: 1px solid #c1d6c5;
+  padding: 0.44em 0.94em;
+  margin-left: 3em;
+  margin-right: 25em;
+}
+.DocumentActions li {
+  display: inline;
+  text-transform: uppercase;
+  margin-right: 1em;
+}
+.DownloadMenuItemInfo {
+  font-size: 0.8em;
+}
+
+/* Search Results */
+.VisualSearchResultSpacer {
+  height: 1.2em;
+}
+.SearchResultItem img {
+  float: left;
+  margin-right: 2em;
+  border: 1px solid #ccc;
+}
+.SearchResultItem .NoThumbnail {
+  height: 90px;
+  width: 62px;
+  float: left;
+  margin-right: 2em;
+  border: 1px solid #ccc;
+  color: #ccc;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.SearchResultDetail ul li {
+  display: inline;
+  text-align: left;
+}
+.SearchResultDetail dl {
+  text-transform: uppercase;
+  margin: 0;
+}
+.SearchResultDetail h3 {
+  display: inline;
+  margin-right: 1.25em;
+}
+.SearchResultDetail p {
+  margin-top: 0.2em;
+  margin-left: 6.8em;
+}
+.SearchResultDetailHeader {
+  margin-bottom: 0.44em;
+}
+.SearchResultDetail .Relevance {
+  color: #0e9610;
+  display: inline;
+  font-size: 0.8em;
+}
+.SearchResultItem dl dd {
+  border-right: 1px solid #2c2c2c;
+  padding-right: 0.63em;
+}
+.SearchResultItem dl dd.End {
+  border-right: 0;
+}
+.SearchResultItem dl dt.Start {
+  padding-left: 0;
+}
+.SearchResultItem dl dt {
+  padding-left: 0.4em;
+  text-transform: uppercase;
+}
+.SearchResultItem dl dd,
+.SearchResultItem dl dt {
+  display: inline;
+}
+.SearchResultItem .Hline {
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 1.25em;
+  margin-left: 7em;
+}
+.SearchResultItem .Hline.End {
+  border-bottom: 3px solid #ededed;
+  margin-left: 0;
+}
+.Batching {
+  float: right;
+  font-weight: bold;
+}
+
+.FileViewer {
+  border: 2px solid #ccc;
+  overflow: hidden;
+  width: 600px;
+}
+.FileViewer pre {
+   max-height: 60em;
+   overflow: scroll;
+}
+.ViewerMenuItem {
+  float: right;
+  padding: 0.63em;
+  font-size: 80%;
+}
+#ViewerHeader {
+  background: #ccc;
+}
+#ViewerHeader h3 {
+  margin: 0;
+  padding: 0.63em;
+  font-size: 1em;
+  color: blue;
+  text-transform: uppercase;
+}
+.NoPreviewNote {
+  text-align: center;
+  min-height: 850px;
+}
+
+/* gocept autocomplete */
+.yui-ac-content {
+  border: 1px solid #87A4C2;
+}
+.yui-ac-highlight,
+.yui-ac-prehighlight {
+  background-color: #87A4C2;
+  color: white;
+}
+.NoListstyle,
+.yui-ac-bd ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* metadata form - show more fields */
+.MoreFieldsButton {
+  margin-bottom: 1em;
+}
+#morebutton.yui-button {
+  text-decoration: underline;
+  background: none;
+  border: 0;
+}
+#morebutton.yui-button button {
+  color: blue;
+  padding: 0;
+  margin-top: 2em;
+  font-weight: bold;
+}
+
+/* metadata form - versions widget */
+.yui-skin-sam .versions-widget .yui-button {
+  background: none;
+  border: 0;
+}
+.yui-skin-sam .versions-widget .yui-button .first-child {
+  border: none;
+}
+.yui-skin-sam .versions-widget .yui-button button,
+.yui-skin-sam .versions-widget .yui-button a {
+  color: blue;
+  text-decoration: underline;
+  font-size: inherit;
+  line-height: inherit;
+  min-height: 0;
+  padding: 0;
+}
+/* metadata form - add versions dialog */
+#AddVersionsDialog .buttonsWrapper {
+  float: right;
+}
+#AddVersionsDialog .buttons {
+  margin-top: 1em;
+}
+#AddVersionsDialog #versionsform-widgets-text {
+  width: 20em;
+}
+
+.SourceView {
+   width: 100%;
+}
+.EmbedPreview iframe {
+   height: 65em;
+   border: 1px solid #999;
+}
+
+/* contact us */
+#contactform textarea {
+  width: 63%;
+  min-height: 5em;
+}
+
+
+
+/* my details */
+#mydetailsform fieldset {
+  border: 0;
+  padding: 0;
+}
+
+/* tag cloud */
+.TagCloud ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.TagCloud ul li {
+  display: inline;
+}
+.TagSize0 {
+  font-size: 80%;
+}
+.TagSize1 {
+  font-size: 100%;
+}
+.TagSize2 {
+  font-size: 120%;
+}
+.TagSize3 {
+  font-size: 140%;
+}
+.TagSize4 {
+  font-size: 170%;
+}
+.TagSize5 {
+  font-size: 200%;
+}
+
+/* most popular */
+.MostPopular ul {
+  padding-left: 1em;
+  margin-bottom: 0;
+}
+
+.MostPopular ul li {
+  margin-top: 0.5em;
+}
+
+/* searchbox*/
+.searchBox {  
+  margin: 0 3em;
+  width: 900px;
+}
+
+.listTable {
+  margin: 0 3em;
+  width: 900px; 
+}
+.publication {
+  width: 50%;
+  float: left;
+}
+.popular {
+  width: 50%;
+  float: right;
+}
+.loginBox {
+  float: right;
+  margin-top: 2em;
+  margin-right: 3em;
+  font-size:10px;
+ 
+}
+.loginBox table {
+        border-collapse: collapse;
+         border-style: none;
+        padding: 0px;
+        spacing: 0px;
+}
+input.loginBox {
+  background-color: #c4dee3; 
+  font-size: 10px;
+  font-weight:bold;
+   padding: 0px;
+        spacing: 0px;
+}

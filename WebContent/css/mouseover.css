@@ -1,0 +1,30 @@
+span.dropt:hover 
+{
+ z-index: 6;
+}
+span.dropt span 
+{
+ position: absolute; 
+ left: -9999px;
+ margin: 20px 0 0 0px; 
+ padding: 3px 3px 3px 3px;
+ border-style: solid; 
+ border-color: #000000; 
+ border-width: 1px; 
+ z-index: 6;
+}
+span.dropt:hover span 
+{
+ left: 2%; 
+ background: #000000;
+} 
+span.dropt:hover span 
+{ 
+  position: float; 
+  margin: 20px 0 0 370px; 
+  background: #f1f4cd;
+  z-index: 6;
+  border-color: #000000;
+  color: #000000;
+  border-radius: 5px;
+}
