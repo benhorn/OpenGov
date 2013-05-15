@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build">
+  <property file="build.properties"/>
+  <property name="src.dir" value="../../src"/>
+  <property name="build.dir" value="classes"/>
+  <property name="name" value="DA-WEB"/>
+	
+  <path id="build.classpath">
+      <fileset dir="lib">
+          <include name="*.jar"/>
+      </fileset>
+      <!-- servlet API classes: -->
+      <fileset dir="${appserver.lib}">
+          <include name="servlet*.jar"/>
+      </fileset>
+      <pathelement path="${build.dir}"/>
+  </path>
+  	
+  <target name="build">
+      <mkdir dir="${build.dir}"/>
+      <javac destdir="${build.dir}" source="1.5" target="1.5" debug="true" deprecation="false" optimize="false" failonerror="true">
+          <src path="${src.dir}"/>
+          <classpath refid="build.classpath"/>
+      </javac>
+  </target>
+  
+  <target name="copy hbm.xml files" depends="build">
+  	    <copy todir="${build.dir}/au/gov/nsw/records/digitalarchive/ORM" preservelastmodified="true">
+  	  	  	<fileset dir="${src.dir}/au/gov/nsw/records/digitalarchive/ORM">
+  	  	  	   <include name="*.xml"/>
+  	  	  	</fileset>
+  	  	</copy>
+  </target>
+	
+	<target name="copy resources files" depends="build">
+	  	    <copy todir="${build.dir}/au/gov/nsw/records/digitalarchive/struts/resources" preservelastmodified="true">
+	  	  	  	<fileset dir="${src.dir}/au/gov/nsw/records/digitalarchive/struts/resources">
+	  	  	  	   <include name="*.properties"/>
+	  	  	  	</fileset>
+	  	  	</copy>
+	  </target>
+	
+  <target name="clean" description="Clean output directories">
+      <delete>
+          <fileset dir="${build.dir}">
+              <include name="**/*.class"/>
+          </fileset>
+      </delete>
+  </target>
+  <target name="build and Deploy WAR" depends="build, copy hbm.xml files" description="Build the war file">
+  	<war destfile="${name}.war" webxml="web.xml">
+  	   <fileset dir="../../WebContent">
+  	      <include name="**/*.*"/>
+  	   </fileset>
+  	</war>
+  	<copy todir="${deploy.path}" preservelastmodified="true">
+  	  	<fileset dir=".">
+  	  	   <include name="*.war"/>
+  	  	</fileset>
+  	</copy>
+  </target>	
+</project>

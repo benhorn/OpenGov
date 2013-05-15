@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/327/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base
+END
+NYTimesJSONFileWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1088/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/NYTimesJSONFileWriter.java
+END
+JSONFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1160/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/JSONFactory.java
+END
+JSONFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/570/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/JSONFormat.java
+END
+BaseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/808/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/BaseAction.java
+END
+AjaxBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1543/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/AjaxBean.java
+END
+AgencyJSONFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1755/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/AgencyJSONFormat.java
+END
+StringUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/743/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/StringUtility.java
+END
+NYTimesJSONFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1088/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/NYTimesJSONFormat.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1763/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/Constants.java
+END
+BaseLog.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/386/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/BaseLog.java
+END
+PublicationJSONFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1740/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/base/PublicationJSONFormat.java
+END

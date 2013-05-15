@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1084/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet
+END
+OpenGovThumbnail.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1091/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet/OpenGovThumbnail.java
+END
+PDFOpener.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1089/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet/PDFOpener.java
+END
+PDFImageOpener.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1300/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet/PDFImageOpener.java
+END
+NYTimesReaderFileWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1088/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet/NYTimesReaderFileWriter.java
+END
+DocumentSearcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1690/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet/DocumentSearcher.java
+END
+TextFileOpener.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1693/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/servlet/TextFileOpener.java
+END

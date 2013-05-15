@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/327/DA/WebAPI/DA-WEB/src
+END
+hibernate_filbert.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/327/DA/WebAPI/DA-WEB/src/hibernate_filbert.cfg.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/327/DA/WebAPI/DA-WEB/src/log4j.properties
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1314/DA/WebAPI/DA-WEB/src/hibernate.cfg.xml
+END

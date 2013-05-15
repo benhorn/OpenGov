@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1079/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system
+END
+AUDate.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1216/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/AUDate.java
+END
+FileReaderWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1750/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/FileReaderWrapper.java
+END
+HostNameFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1112/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/HostNameFinder.java
+END
+DateFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1750/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/DateFormat.java
+END
+LogFileGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1764/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/LogFileGenerator.java
+END
+URLGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1236/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/URLGenerator.java
+END
+DBUpdater.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1682/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/DBUpdater.java
+END
+HTMLInputFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1743/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/HTMLInputFilter.java
+END
+LuceneDateFormatter.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1742/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/LuceneDateFormatter.java
+END
+LogFileGenerater.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1747/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/system/LogFileGenerater.java
+END

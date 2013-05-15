@@ -1,0 +1,213 @@
+package au.gov.nsw.records.digitalarchive.system;
+
+import java.io.FileWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.axis.utils.StringUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONAware;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+import au.gov.nsw.records.digitalarchive.ORM.FullAgencyList;
+import au.gov.nsw.records.digitalarchive.ORM.Publication;
+import au.gov.nsw.records.digitalarchive.base.Constants;
+import au.gov.nsw.records.digitalarchive.service.AgencyPublicationService;
+import au.gov.nsw.records.digitalarchive.service.AgencyPublicationServiceImpl;
+import au.gov.nsw.records.digitalarchive.service.FullAgencyListService;
+import au.gov.nsw.records.digitalarchive.service.FullAgencyListServiceImpl;
+
+public class LogFileGenerater implements JSONAware
+{
+	private Integer agencyID = 0;
+	private String dateRun = "";
+	private List<Publication> publications = new ArrayList<Publication>(); 
+	private String cumulativeTotal = "";
+	private String monthlyTotal = "";
+	private String yearlyTotal = "";
+	
+	
+	public LogFileGenerater(){ super();}
+	
+	public LogFileGenerater(Integer agencyID, String dateRun, List<Publication> publications,
+							String cumulativeTotal, String monthlyTotal,
+							String yearlyTotal)
+	{
+		this.agencyID = agencyID;
+		this.dateRun = dateRun;
+		this.publications = publications;
+		this.cumulativeTotal = cumulativeTotal;
+		this.monthlyTotal = monthlyTotal;
+		this.yearlyTotal = yearlyTotal;
+	}
+	
+	@Override
+	public String toJSONString() {
+		StringBuffer sb = new StringBuffer();
+		int counter = 1;
+		String comma = ",";
+		
+		sb.append("{");
+		
+		sb.append(Constants.quotes + JSONObject.escape("ID") + Constants.quotes);
+        sb.append(":");
+        sb.append(this.agencyID);
+        
+        sb.append(",");
+        
+        sb.append(Constants.quotes + JSONObject.escape("Date_Run") + Constants.quotes);
+        sb.append(":");
+        sb.append(Constants.quotes + this.dateRun + Constants.quotes);
+        
+        sb.append(",");
+        
+        sb.append(Constants.quotes + JSONObject.escape("publications") + Constants.quotes);
+        sb.append(":[");
+        
+        for (Iterator<Publication> pubIterator = publications.iterator(); pubIterator.hasNext();) 
+        {
+			Publication thisPublication = (Publication) pubIterator.next();
+			String hits = "0";
+	    	String publicationTitle = "";
+	    	if (thisPublication.getViewedTimes() != null)
+	    		{hits = thisPublication.getViewedTimes().toString();}
+	    	
+	    	if (StringUtils.isEmpty(thisPublication.getTitle()))
+	    		{publicationTitle = "";}
+	    	else if (thisPublication.getTitle().indexOf(",") != -1)
+	    		{publicationTitle = thisPublication.getTitle().replace(",", "");}
+	    	else
+	    		{publicationTitle = thisPublication.getTitle();}
+			
+			
+			sb.append("{");
+	        sb.append(Constants.quotes + JSONObject.escape("title") + Constants.quotes);
+	        sb.append(":");
+	        sb.append(Constants.quotes + publicationTitle + Constants.quotes);
+	        sb.append(",");
+	        sb.append(Constants.quotes + JSONObject.escape("cumulative") + Constants.quotes);
+	        sb.append(":");
+	        sb.append(Constants.quotes + hits + Constants.quotes);
+	        sb.append(",");
+	        sb.append(Constants.quotes + JSONObject.escape("monthly") + Constants.quotes);
+	        sb.append(":");
+	        sb.append(Constants.quotes + monthlyTotal + Constants.quotes);
+	        sb.append(",");
+	        sb.append(Constants.quotes + JSONObject.escape("yearly") + Constants.quotes);
+	        sb.append(":");
+	        sb.append(Constants.quotes + yearlyTotal + Constants.quotes);
+	        sb.append("}");
+	        
+	        if (counter == publications.size())
+	        	{comma = "";}
+	        sb.append(comma);
+	        counter++;
+		}
+        	
+        sb.append("],");
+        
+        sb.append(Constants.quotes + JSONObject.escape("Cumulative_Total") + Constants.quotes);
+        sb.append(":");
+        sb.append(Constants.quotes + this.cumulativeTotal + Constants.quotes);
+        
+        sb.append(",");
+
+        sb.append(Constants.quotes + JSONObject.escape("Monthly_Total") + Constants.quotes);
+        sb.append(":");
+        sb.append(Constants.quotes + this.monthlyTotal + Constants.quotes);
+        
+        sb.append(",");
+
+        sb.append(Constants.quotes + JSONObject.escape("Yearly_Total") + Constants.quotes);
+        sb.append(":");
+        sb.append(Constants.quotes + this.yearlyTotal + Constants.quotes);
+        
+        sb.append("}");
+        return sb.toString();
+	}
+	
+	
+	private static void readJSON(String sFileName) throws Exception
+	{
+		FileReaderWrapper frw = new FileReaderWrapper();
+		String line = frw.readUsingFileReader("C:\\mnt\\opengovdata\\out.txt");
+		Object obj=JSONValue.parse(line);
+		
+		JSONObject jObject = (JSONObject)obj;
+		JSONArray publications = (JSONArray)jObject.get("publications");
+			
+		Object[] pubs = publications.toArray();
+		Integer temp = 0;
+		
+		
+		ArrayList<JSONObject> jObjectList = new ArrayList<JSONObject> ();
+		
+		for (int i = 0; i < pubs.length; i++)
+		{
+			jObjectList.add((JSONObject)pubs[i]);
+		}
+		
+		for (int j = 0; j < jObjectList.size(); j++)
+		{
+			temp = temp + Integer.parseInt(jObjectList.get(j).get("cumulative").toString());
+		}
+	
+		System.out.println(temp);
+	}
+	
+	public static void main(String [] args) throws Exception
+	{
+		LogFileGenerater lfg;
+		
+		AgencyPublicationService aps = new AgencyPublicationServiceImpl();
+		FullAgencyListService fls = new FullAgencyListServiceImpl();
+		List<FullAgencyList> agencyList = fls.browseFullAgencyList();
+		FileReaderWrapper frw = new FileReaderWrapper();
+		Iterator<FullAgencyList> fullIterator = agencyList.iterator();
+		while (fullIterator.hasNext()) 
+		{
+			FullAgencyList fullAgencyList = (FullAgencyList) fullIterator.next();
+			List<Publication> publicationList = aps.loadPublicationViaFullAgency(fullAgencyList);
+			Iterator<Publication> pubIter = publicationList.iterator();
+			while(pubIter.hasNext())
+			{
+				Publication pub = (Publication) pubIter.next();
+				try {
+					lfg = new LogFileGenerater (fullAgencyList.getFullAgencyListId(), new Date().toString(), publicationList, "100", "100", "100");
+					FileWriter fw = new FileWriter("C:\\mnt\\opengovdata\\logs\\" + fullAgencyList.getFullAgencyListId() + ".txt");
+					fw.write(lfg.toJSONString());  
+					fw.close();
+				} catch (Exception e) {
+					System.out.println("Exception " + pub.getPublicationId());
+				}
+				
+			}
+		}
+	}
+	
+//	public static void main(String [] args) throws Exception
+//	{
+//		LogFileGenerater lfg;
+//		AgencyPublicationService aps = new AgencyPublicationServiceImpl();
+//		FullAgencyListService fls = new FullAgencyListServiceImpl();
+//		FullAgencyList fal = fls.loadFullAgencyList(25089);
+//		List<Publication> publicationList = aps.loadPublicationViaFullAgency(fal);
+//		Iterator<Publication> pubIter = publicationList.iterator();
+//		while (pubIter.hasNext()) {
+//			Publication publication = (Publication) pubIter.next();
+//			lfg = new LogFileGenerater (25089, new Date().toString(), publicationList, publication.getViewedTimes().toString(), "100", "100");
+//			FileWriter fw = new FileWriter("C:\\mnt\\opengovdata\\" + 25089 + ".txt");
+//			fw.write(lfg.toJSONString());  
+//			fw.close();
+//		}	
+//	}
+	
+	
+	
+}

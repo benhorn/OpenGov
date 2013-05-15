@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/327/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form
+END
+MemberLoginForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1544/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form/MemberLoginForm.java
+END
+FileUploadForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/695/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form/FileUploadForm.java
+END
+SearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1369/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form/SearchForm.java
+END
+MemberForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1545/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form/MemberForm.java
+END
+PublicationForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1198/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form/PublicationForm.java
+END
+RegistrationForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/693/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/struts/form/RegistrationForm.java
+END

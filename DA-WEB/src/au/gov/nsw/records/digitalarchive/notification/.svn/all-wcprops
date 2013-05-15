@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/752/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification
+END
+DAConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/752/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification/DAConstants.java
+END
+EmailNotificationActionConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/752/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification/EmailNotificationActionConfig.java
+END
+emailnotification_config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1319/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification/emailnotification_config.xml
+END
+ConfigHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/752/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification/ConfigHelper.java
+END
+ConfigDeserializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/752/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification/ConfigDeserializer.java
+END
+EmailNotificationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1424/DA/WebAPI/DA-WEB/src/au/gov/nsw/records/digitalarchive/notification/EmailNotificationAction.java
+END
