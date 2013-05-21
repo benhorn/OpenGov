@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#mem" NAME="action0" PATH="/mem" SHAPE="32,17,0,0"
+  TITLE="memberForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="success" NAME="forward0" PATH="success.jsp"
+   TARGET="page3" TITLE="success" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="failed" NAME="forward1" PATH="index.jsp"
+   TARGET="page2" TITLE="failed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#memberLogin" NAME="action1" PATH="/memberLogin"
+  SHAPE="32,273,0,0" TITLE="memberLoginForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="fail" NAME="forward0" PATH="index.jsp"
+   TARGET="page2" TITLE="fail" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="success" NAME="forward1" PATH="success.jsp"
+   TARGET="page3" TITLE="success" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page2" PATH="index.jsp" SHAPE="256,290,0,0"
+  SUBTYPE="jsp" TITLE="index.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page3" PATH="success.jsp" SHAPE="256,434,0,0"
+  SUBTYPE="jsp" TITLE="success.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+</PROCESS>
