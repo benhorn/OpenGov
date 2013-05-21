@@ -1,0 +1,26 @@
+<form-validation>
+	<global>
+	   <constant>
+	       <constant-name>phone</constant-name>
+	       <constant-value>^\(?(\d{3})\)?[-| ]?(\d{8})$</constant-value>
+	   </constant>
+	</global>
+	<formset>
+		<form name="memberLoginForm">
+			<field
+				property="loginName"
+				depends="required">
+				<msg name="required" key="form.loginname.required" />
+			</field>
+			<field
+                property="loginPwd"
+                depends="required, mask">
+                    <msg name="required" key="form.password.required" />
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+		</form>								
+	</formset>
+</form-validation>

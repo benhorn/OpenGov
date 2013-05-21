@@ -12,6 +12,7 @@ import au.gov.nsw.records.digitalarchive.ORM.HibernateUtil;
 import au.gov.nsw.records.digitalarchive.ORM.Publication;
 import au.gov.nsw.records.digitalarchive.ORM.UploadedFile;
 import au.gov.nsw.records.digitalarchive.base.BaseLog;
+import org.apache.commons.io.FileUtils;
 
 
 public class FileServiceImpl extends BaseLog implements FileService
@@ -145,6 +146,23 @@ public class FileServiceImpl extends BaseLog implements FileService
 		 return result;
 	}
 	
+	@Override
+	public boolean cleanUpInbox(UploadedFile inputFile) throws Exception {
+
+		boolean fileDeleted = deletePhysicalFiles(inputFile);
+		boolean result = false;
+		if (fileDeleted)
+		{
+			File inboxFile = new File(inputFile.getInboxUrl());
+			FileUtils.deleteDirectory(new File(inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - inputFile.getFileName().length())));
+			result = true;
+		}else
+		{
+	    	  logger.info("In class FileServiceImpl:cleanUpInbox() - Unable to delete directory: " + inputFile.getInboxUrl());
+		}
+		
+		return result;
+	}
 	
 	@Override
 	public boolean deletePhysicalFilesViaPub(Publication publication) throws Exception {
@@ -325,4 +343,6 @@ public class FileServiceImpl extends BaseLog implements FileService
 		}	
 		return order;
 	}
+
+	
 }

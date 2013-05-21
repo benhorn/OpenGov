@@ -1,0 +1,88 @@
+# -- standard errors --
+errors.header=<ul>
+errors.prefix=<li>
+errors.suffix=</li>
+errors.footer=</ul>
+
+# -- validator --
+errors.invalid={0} is invalid.
+errors.maxlength={0} can not be greater than {1} characters.
+errors.minlength={0} can not be less than {1} characters.
+errors.range={0} is not in the range {1} through {2}.
+errors.required={0} is required
+errors.byte={0} must be an byte.
+errors.date={0} is not a date.
+errors.double={0} must be an double.
+errors.float={0} must be an float.
+errors.integer={0} must be an integer.
+errors.long={0} must be an long.
+errors.short={0} must be an short.
+errors.creditcard={0} is not a valid credit card number.
+errors.email=Invalid email address.
+errors.unknown=Unable to register your details, please try again later.
+errors.title.required=Title is required.
+errors.agency.required=Agency is required.
+errors.datepublished.required=Date published is required.
+
+# -- homepage --
+homepage.home=Home
+homepage.register_list=Register
+
+# -- metadata --
+metadata.section1=Metadata
+metadata.section2=Additional Metadata
+metadata.title=The name of the publication
+metadata.description=An account of the content of the resource
+metadata.keywords=A list of subjects to categorise the publication
+metadata.agency=Under which government body this publication was published.
+metadata.date.published=The date when the publication was originally issued by its creating organisation.
+metadata.licensing=Information about the license held over the resource.
+metadata.type=Information about the license held over the resource.
+metadata.pages=Number of pages.
+metadata.format=File format.
+metadata.filesize=File size.
+metadata.inclusion.date=Information about the license held over the resource.
+metadata.identifier=The ISBN, ISSN, another type of URI or other form of unique identification for the publication.
+metadata.audience=The target audience of the publication.
+metadata.coverage=The spatial location relevant to the publication.
+metadata.language=A language of the intellectual content of the resource.
+metadata.publisher=An entity responsible for making the resource available.
+metadata.relation=A related source.
+metadata.availability=How the resource can be obtained, or contact information for obtaining the resource.
+metadata.mandate=A specific warrant which requires a resource to be created or provided.
+metadata.current.owner=The name of the organisation that provided this copy for registration into Publications NSW.
+metadata.source=A reference to a resource from which the present source is derived.
+metadata.contributor=An entity responsible for making a contribution to the content of the resource.
+metadata.rights=Information about rights held in and over the resource.
+metadata.creativecommons=The Creative Commons BY Attribution licence lets others distribute, re-mix and build upon a work, even commercially, as long as they credit the original creator/s (and any other nominated parties).
+
+
+
+# -- batch status --
+batch.draft=<font color="#000000">draft</font>
+batch.submitted=<font color="#000000">submitted</font>
+batch.processing=<font color="#000000">processing</font>
+batch.rejected=<font color="#000000">rejected</font>
+batch.published=<font color="#000000">published</font>
+publication.delete.success=<font color="#cccccc">Publication has been deleted</font>
+# -- form --
+form.loginname.required=Login name is required.
+form.password.required=Please choose a password.
+form.loginError=Invalid Login name or Password.
+form.account.inactive=This account is not yet activated.
+form.agency.required=Agency is required.
+form.firstname.required=First name is required.
+form.lastname.required=Last name is required.
+form.email.required=Email is required.
+form.phone.required=Please enter a phone number.
+form.all.required=All registration information is required.
+
+# -- dashboard --
+dashboard.home=Home 
+
+# -- batch --
+
+
+# -- member--
+member.update.success=Your personal details are updated.
+member.update.fail=Failed to update your personal details.

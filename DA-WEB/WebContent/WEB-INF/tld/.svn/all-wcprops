@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/522/DA/WebAPI/DA-WEB/WebContent/WEB-INF/tld
+END
+struts-logic.tld
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/522/DA/WebAPI/DA-WEB/WebContent/WEB-INF/tld/struts-logic.tld
+END
+struts-html.tld
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/522/DA/WebAPI/DA-WEB/WebContent/WEB-INF/tld/struts-html.tld
+END
+struts-bean.tld
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/522/DA/WebAPI/DA-WEB/WebContent/WEB-INF/tld/struts-bean.tld
+END

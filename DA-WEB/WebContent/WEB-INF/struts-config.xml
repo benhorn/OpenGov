@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  	<form-beans>
+    	<form-bean name="memberLoginForm" type="au.gov.nsw.records.digitalarchive.struts.form.MemberLoginForm"/>
+    	<form-bean name="registrationForm" type="au.gov.nsw.records.digitalarchive.struts.form.RegistrationForm"/>
+    	<form-bean name="fileUploadForm" type="au.gov.nsw.records.digitalarchive.struts.form.FileUploadForm"/>
+    	<form-bean name="PublicationForm" type="au.gov.nsw.records.digitalarchive.struts.form.PublicationForm"/>
+		<form-bean name="searchForm" type="au.gov.nsw.records.digitalarchive.struts.form.SearchForm"/>
+		<form-bean name="memberForm" type="au.gov.nsw.records.digitalarchive.struts.form.MemberForm"/>
+  	</form-beans>
+	
+	<global-forwards>
+  		<forward name="login" path="/login.jsp"/>
+  	</global-forwards>
+  	
+  <action-mappings>
+    <action
+      path="/login"
+      input="/login.jsp"
+      name="memberLoginForm"
+      scope="request"
+      validate="true"
+      type="au.gov.nsw.records.digitalarchive.struts.action.MemberLoginAction">
+      		<forward name="success" path="/agency_pages/index.jsp" redirect="true"/>
+      		<forward name="failed" path="/login.jsp" />
+    </action> 
+    <action
+      path="/reg"
+      input="/register.jsp"
+      name="registrationForm"
+      parameter="method"
+      scope="request"
+      validate="false"
+      type="au.gov.nsw.records.digitalarchive.struts.action.RegistrationAction">
+      		<forward name="success" path="register_success" redirect="true"/>
+      		<forward name="home" path="/index.jsp"/>
+      		<forward name="failed" path="/register.jsp"/>
+    </action>
+    <action 
+       path="/pub" 
+       input="/agency_pages/newPublication.jsp" 
+       name="PublicationForm"
+       parameter="method" 
+       scope="session"
+       type="au.gov.nsw.records.digitalarchive.struts.action.PublicationAction">
+       		<forward name="home" path="/agency_pages/globalRedirect.jsp?page=myPub"/>
+       		<forward name="index" path="index.jsp"/>
+       		<forward name="attachFiles" path="/agency_pages/file_upload.jsp" redirect="true"/>
+            <forward name="detail" path="/agency_pages/publicationDetail.jsp"/>
+            <forward name="edit" path="/agency_pages/publicationEdit.jsp"/>
+    </action>
+    <action 
+       path="/member" 
+       input="/agency_pages/myDetails.jsp" 
+       name="memberForm"
+       parameter="method" 
+       scope="session"
+       type="au.gov.nsw.records.digitalarchive.struts.action.MemberAction">
+            <forward name="myDetails" path="/agency_pages/myDetails.jsp"/>
+			<forward name="login" path="/login.jsp"/>
+    </action>
+    <action 
+       path="/fileUploadAction" 
+       input="/agency_pages/file_upload.jsp"
+       name="fileUploadForm" 
+       scope="session" 
+       type="au.gov.nsw.records.digitalarchive.struts.action.FileUploadAction">
+            <forward name="success" path="/agency_pages/file_upload_success.jsp" />
+            <forward name="failed" path="/agency_pages/file_upload_failed.jsp" />
+    </action>
+    <action
+      path="/searchAction"
+      input="/jspincludes/search.jsp" 
+      name="searchForm"
+      scope="request"
+      type="au.gov.nsw.records.digitalarchive.struts.action.SearchAction">
+      		<forward name="success" path="/search_result/search_result.jsp" />
+    </action>
+    <action
+      path="/metadata"
+      input="/agency_pages/newPublication.jsp" 
+      scope="request"
+      validate="true"
+      type="au.gov.nsw.records.digitalarchive.struts.action.MetadataAction">
+      		<forward name="success" path="/agency_pages/metadata.jsp" />
+      		<forward name="failed" path="/agency_pages/metadata.jsp" />
+    </action>
+    <action
+      path="/dashboard"
+      input="/agency_pages/newPublication.jsp" 
+      name="PublicationForm"
+      parameter="method"
+      scope="session"
+      type="au.gov.nsw.records.digitalarchive.struts.action.DashboardAction">
+      		<forward name="home" path="/agency_pages/myPublications.jsp"/>
+      		<forward name="unspecifiedpage" path = "/agency_pages/myPublications.jsp"/>
+      		<forward name="newPublication" path="/agency_pages/index.jsp"/>
+      		<forward name="myDetails" path="/agency_pages/myDetails.jsp"/>
+      		<forward name="updateMetadata" path="/agency_pages/publicationMetadataEdit.jsp"/>
+    </action>
+    <action 
+    	path="/download"
+		type="au.gov.nsw.records.digitalarchive.struts.action.FileDownloadAction">
+ 	</action>
+ 	<action 
+    	path="/file"
+		type="au.gov.nsw.records.digitalarchive.struts.action.UploadedFileAction"
+		parameter="method" 
+		scope="request">
+		<forward name="home" path="/agency_pages/file_upload.jsp" />		
+ 	</action>
+ 	<action 
+    	path="/agency"
+		type="au.gov.nsw.records.digitalarchive.struts.action.AgencyAction"
+		parameter="method" 
+		scope="request">
+		<forward name="home" path="/agency_pages/file_upload.jsp" />		
+ 	</action>
+    <action
+        path="/logout"
+        type="au.gov.nsw.records.digitalarchive.struts.action.LogoutAction"
+        scope="request">
+        <forward name="success" path="/index.jsp"/>
+     </action>
+ </action-mappings>
+
+  <message-resources parameter="au.gov.nsw.records.digitalarchive.struts.resources.resources" />
+
+ <!--Validator-->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    			<set-property property="pathnames" 
+                  value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml" />
+  </plug-in>
+      
+</struts-config>
+

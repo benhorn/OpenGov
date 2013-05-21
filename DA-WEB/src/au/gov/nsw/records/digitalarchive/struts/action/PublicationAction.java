@@ -20,6 +20,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
@@ -65,6 +66,7 @@ import au.gov.nsw.records.digitalarchive.service.PublisherPublicationServiceImpl
 import au.gov.nsw.records.digitalarchive.struts.form.PublicationForm;
 import au.gov.nsw.records.digitalarchive.system.AUDate;
 import au.gov.nsw.records.digitalarchive.system.LuceneDateFormatter;
+
 public class PublicationAction extends BaseAction 
 {
 	LuceneDateFormatter ldf = new LuceneDateFormatter();
@@ -223,6 +225,10 @@ public class PublicationAction extends BaseAction
 						File pairTreePDF = new File(pairTreeURL + "document.pdf");
 						renameFile (inboxFile, pairTreePDF);
 
+						fs.cleanUpInbox(uFile); // cleans up the inbox
+//						System.out.println("\n\n\n"+inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - uFile.getFileName().length()));
+//						FileUtils.deleteDirectory(new File(inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - uFile.getFileName().length())));
+
 						/***For migration only**/
 						TikaWrapper ta = new TikaWrapper();
 						Integer pageNumber = Integer.parseInt(ta.getPageNumber(pairTreeURL + "document.pdf"));
@@ -252,8 +258,6 @@ public class PublicationAction extends BaseAction
 						PDFBoxWrapper pbw = new PDFBoxWrapper();
 						ConvertPagesToHiResImages CRT= new ConvertPagesToHiResImages(); 
 						PDDocument pd = PDDocument.load(uFile.getPairtreeUrl());
-
-						System.out.println("\nIs encrypted: " + pd.isEncrypted() + "\n");
 
 						if (!pd.isEncrypted())
 						{
@@ -813,13 +817,16 @@ public class PublicationAction extends BaseAction
 
 						File pairTreeDIR = new File(pairTreeURL);
 
-						System.out.println("Readable: " + inboxFile.canRead());
-						System.out.println("Writeable: " + inboxFile.canWrite());
-						System.out.println("Executable: " + inboxFile.canExecute());
+//						System.out.println("Readable: " + inboxFile.canRead());
+//						System.out.println("Writeable: " + inboxFile.canWrite());
+//						System.out.println("Executable: " + inboxFile.canExecute());
+
+						System.out.println("File path " + inboxFile.getAbsolutePath());
 
 						File pairTreePDF = new File(pairTreeURL + "document.pdf");
 						renameFile (inboxFile, pairTreePDF);
-
+						
+						fs.cleanUpInbox(uFile); // cleans up the inbox
 						/***For migration only**/
 						TikaWrapper ta = new TikaWrapper();
 						Integer pageNumber = Integer.parseInt(ta.getPageNumber(pairTreeURL + "document.pdf"));
@@ -909,7 +916,7 @@ public class PublicationAction extends BaseAction
 					mailSender.sendEmail(recipient, "Your publication is now live!", 
 								"Hi " + currentMember.getFirstname() + ":<br/>" +
 								"<p>Your publication " + publication.getTitle() + " is now live.</p>" +
-								"<p>You may view it at https://www.opengov.nsw.gov.au/publication/" + aFile.getFileId() +"</p>" + 
+								"<p>You may view it at https://www.opengov.nsw.gov.au/publication/" + aFile.getFileId() + "</p>" + 
 							    "<p>If you have any questions please contact us at opengov@records.nsw.gov.au</p>");
 				}
 				ps.updatePublication(publication);
@@ -1270,14 +1277,16 @@ public class PublicationAction extends BaseAction
         return agencyArray;
 	}
 	
-	private static void renameFile(File sourceFile, File destFile) throws IOException {
-	     if(!destFile.exists()) {
-	      destFile.createNewFile();
-	     }
+	private static void renameFile(File sourceFile, File destFile) throws IOException 
+	{
+	  if(!destFile.exists()) {
+	     destFile.createNewFile();
+	  }
 
-	     FileChannel source = null;
-	     FileChannel destination = null;
-	     try {
+	  FileChannel source = null;
+	  FileChannel destination = null;
+	  
+	  try {
 	      source = new RandomAccessFile(sourceFile,"rw").getChannel();
 	      destination = new RandomAccessFile(destFile,"rw").getChannel();
 
@@ -1285,16 +1294,32 @@ public class PublicationAction extends BaseAction
 	      long count = source.size();
 
 	      source.transferTo(position, count, destination);
-	     }
-	     finally {
+	  }
+	  finally 
+	  {
 	      if(source != null) {
-	       source.close();
+	    	  source.close();
 	      }
 	      if(destination != null) {
 	       destination.close();
 	      }
+	  }
+	}
+	
+	private boolean deleteInboxDirectory(File path) {
+	    if (path.exists()) {
+	        File[] files = path.listFiles();
+	        for (int i = 0; i < files.length; i++) {
+	            if (files[i].isDirectory()) {
+	            	deleteInboxDirectory(files[i]);
+	            } else {
+	                files[i].delete();
+	            }
+	        }
 	    }
-	 }
+	    return (path.delete());
+	}
+	
 	
 	private static final double BASE = 1024, KB = BASE, MB = KB * BASE, GB = MB * BASE;
     private static final DecimalFormat df = new DecimalFormat("#.##");

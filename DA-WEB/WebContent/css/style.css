@@ -1,0 +1,358 @@
+img {
+    border: 0px;
+}
+/** error **/
+div.error {
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 0 1em;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+a.orangebutton {
+	background: transparent url('../images/oval-orange-left.gif') no-repeat top left;
+	display: block;
+	float: left;
+	font: normal 13px Tahoma; 
+	line-height: 16px; 
+	height: 24px; 
+	padding-left: 11px; 
+	text-decoration: none;
+}
+
+a:link.orangebutton, a:visited.orangebutton, a:active.orangebutton {
+	color: #494949;
+}
+
+a.orangebutton span {
+	background: transparent url('../images/oval-orange-right.gif') no-repeat top right;
+	display: block;
+	padding: 4px 11px 4px 0; 
+}
+
+a.orangebutton:hover { 
+	background-position: bottom left;
+}
+
+a.orangebutton:hover span{ 
+	background-position: bottom right;
+	color: black;
+}
+
+a.bluebutton{
+	background: transparent url('../images/oval-blue-left.gif') no-repeat top left;
+	display: block;
+	float: left;
+	font: normal 13px Tahoma; 
+	line-height: 16px; 
+	height: 24px; 
+	padding-left: 11px; 
+	text-decoration: none;
+}
+
+a:link.bluebutton, a:visited.bluebutton, a:active.bluebutton{
+	color: #494949; 
+}
+
+a.bluebutton span{
+	background: transparent url('../images/oval-blue-right.gif') no-repeat top right;
+	display: block;
+	padding: 4px 11px 4px 0; 
+}
+
+a.bluebutton:hover{
+	background-position: bottom left;
+}
+
+a.bluebutton:hover span{ 
+	background-position: bottom right;
+	color: black;
+}
+
+a.redbutton{
+	background: transparent url('../images/oval-red-left.gif') no-repeat top left;
+	display: block;
+	float: left;
+	font: normal 13px Tahoma; 
+	line-height: 16px; 
+	height: 24px; 
+	padding-left: 11px; 
+	text-decoration: none;
+}
+
+a:link.redbutton, a:visited.redbutton, a:active.redbutton{
+	color: #494949; 
+}
+
+a.redbutton span{
+	background: transparent url('../images/oval-red-right.gif') no-repeat top right;
+	display: block;
+	padding: 4px 11px 4px 0; 
+}
+
+a.redbutton:hover{ 
+	background-position: bottom left;
+}
+
+a.redbutton:hover span{ 
+	background-position: bottom right;
+	color: black;
+}
+
+.buttonwrapper{ 
+	overflow: hidden; 
+	width: inherit;
+	padding-left:11px;
+}
+/** end button **/
+legend > span
+{
+  display: inline-block;
+  border: 2px solid #900;
+  border-color: #a22 #900 #900 #a22;
+  background: #569;
+  font: normal bold normal 0.88em/1.1 "trebuchet ms",sans-serif;
+  color: #fff;
+  padding: 5px 14px 5px 8px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 0px 0 1px rgba(100,0,0,0.5);
+  -webkit-box-shadow: 0px 0 1px rgba(100,0,0,0.5);
+  box-shadow: 0px 0 1px rgba(60,0,0,0.5);
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
+}
+
+fieldset
+{
+  margin-bottom: 10px;
+  padding: 12px 15px;
+}
+fieldset:last-child
+{
+  border: 2px solid #900;
+  border-color: #900 #b44 #b44 #900;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+label
+{
+  font:normal normal normal 0.88em "trebuchet ms", sans-serif;
+}
+table.publication td
+{
+	padding: 6px;
+}
+label
+{
+width: 11em;
+float: left;
+text-align: left;
+margin-right: 0.5em;
+display: block;
+font-size: 1.1em
+}
+
+
+/** Square button **/
+a.graysquarebutton{
+background: transparent url('../images/square-gray-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 12px Arial; /* Change 12px as desired */
+line-height: 15px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 23px) */
+height: 23px; /* Height of button background height */
+padding-left: 9px; /* Width of left menu image */
+text-decoration: none;
+}
+
+a:link.graysquarebutton, a:visited.graysquarebutton, a:active.graysquarebutton{
+color: #494949; /*button text color*/
+}
+
+a.graysquarebutton span{
+background: transparent url('../images/square-gray-right.gif') no-repeat top right;
+display: block;
+padding: 4px 9px 4px 0; /*Set 9px below to match value of 'padding-left' value above*/
+}
+
+a.graysquarebutton:hover{ /* Hover state CSS */
+background-position: bottom left;
+}
+
+a.graysquarebutton:hover span{ /* Hover state CSS */
+background-position: bottom right;
+color: black;
+}
+
+a.bluesquarebutton{
+background: transparent url('../images/square-blue-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 12px Arial; /* Change 12px as desired */
+line-height: 15px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 23px) */
+height: 23px; /* Height of button background height */
+padding-left: 9px; /* Width of left menu image */
+text-decoration: none;
+}
+
+a:link.bluesquarebutton, a:visited.bluesquarebutton, a:active.bluesquarebutton{
+color: #494949; /*button text color*/
+}
+
+a.bluesquarebutton span{
+background: transparent url('../images/square-blue-right.gif') no-repeat top right;
+display: block;
+padding: 4px 9px 4px 0; /*Set 9px below to match value of 'padding-left' value above*/
+}
+
+a.bluesquarebutton:hover{ /* Hover state CSS */
+background-position: bottom left;
+}
+
+a.bluesquarebutton:hover span{ /* Hover state CSS */
+background-position: bottom right;
+color: black;
+}
+
+/****/
+a.orangesquarebutton{
+background: transparent url('../images/square-orange-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 12px Arial; /* Change 12px as desired */
+line-height: 15px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 23px) */
+height: 23px; /* Height of button background height */
+padding-left: 9px; /* Width of left menu image */
+text-decoration: none;
+}
+
+a:link.orangesquarebutton, a:visited.orangesquarebutton, a:active.orangesquarebutton{
+color: #494949; /*button text color*/
+}
+
+a.orangesquarebutton span{
+background: transparent url('../images/square-orange-right.gif') no-repeat top right;
+display: block;
+padding: 4px 9px 4px 0; /*Set 9px below to match value of 'padding-left' value above*/
+}
+
+a.orangesquarebutton:hover{ /* Hover state CSS */
+background-position: bottom left;
+}
+
+a.orangesquarebutton:hover span{ /* Hover state CSS */
+background-position: bottom right;
+color: black;
+}
+
+/***/
+a.greensquarebutton{
+background: transparent url('../images/square-green-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 12px Arial; /* Change 12px as desired */
+line-height: 15px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 23px) */
+height: 23px; /* Height of button background height */
+padding-left: 9px; /* Width of left menu image */
+text-decoration: none;
+}
+
+a:link.greensquarebutton, a:visited.greensquarebutton, a:active.greensquarebutton{
+color: #494949; /*button text color*/
+}
+
+a.greensquarebutton span{
+background: transparent url('../images/square-green-right.gif') no-repeat top right;
+display: block;
+padding: 4px 9px 4px 0; /*Set 9px below to match value of 'padding-left' value above*/
+}
+
+a.greensquarebutton:hover{ /* Hover state CSS */
+background-position: bottom left;
+}
+
+a.greensquarebutton:hover span{ /* Hover state CSS */
+background-position: bottom right;
+color: black;
+}
+/***/
+
+.squarebuttonwrapper{ 
+overflow: hidden; 
+width: 100%;
+}
+
+.sbuttonwrapper{
+float: right;
+}
+
+/** end square buttons *//
+
+.searchBox{
+	margin: 0 3em;
+   	width: 100%;
+   	min-height: 30em;
+}
+div.opengov_search
+{
+ margin-top: 10px;
+ margin-bottom: 20px;
+}
+input.opengov_search
+{
+ margin-top: 5px;
+ height:34px;
+ vertical-align: bottom;
+}
+input#searchText
+{
+  font-size: large;
+  border: solid 1px #85b1de; 
+  width: 500px;
+  padding: 5px;
+  margin-top: 5px;
+  vertical-align: bottom;
+}
+.greySquare
+{
+  border: 1px solid #888;
+  background: #ffffff;
+  padding: 3px 4px;
+  color: #222;
+  margin: 0px 5px 0px 0px;
+}
+.highlighter
+{
+  background: #A0CFEC;
+}
+.lightblue
+{
+  color: #add8e6;
+}
+a.lightblue
+{
+  text-decoration: none;
+}
+a.lightblue:hover
+{
+  text-decoration: none;
+}
+/*** misc style ***/
+#spinner{
+ height: 31px;
+ padding: 1px 5px;
+ margin-bottom: 15px;
+ background: transparent url('../images/spinner_squares_circle.gif') no-repeat center center;
+}
+#rangeslider
+{
+ margin-left: 2px;
+ margin-right: 2px;
+}
+#daterange
+{
+ margin-bottom: 10px;
+}

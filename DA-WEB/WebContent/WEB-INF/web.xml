@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         version="2.4" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	           
+	<!--Struts tags-->
+	<jsp-config>
+		  <taglib>
+		    <taglib-uri>/struts-bean</taglib-uri>
+		    <taglib-location>/WEB-INF/tld/struts-bean.tld</taglib-location>
+		  </taglib>		  
+		  <taglib>
+		    <taglib-uri>/struts-html</taglib-uri>
+		    <taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
+		  </taglib>		
+		  <taglib>
+		    <taglib-uri>/struts-logic</taglib-uri>
+		    <taglib-location>/WEB-INF/tld/struts-logic.tld</taglib-location>
+		  </taglib>
+	</jsp-config>
+	
+	
+	<filter>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+</filter-mapping>
+	
+	<!-- OpenGovThumbnail component -->
+	<servlet>
+       <servlet-name>displayThumb</servlet-name>
+       <servlet-class>au.gov.nsw.records.digitalarchive.servlet.OpenGovThumbnail</servlet-class>
+     </servlet>
+     <servlet-mapping>
+       <servlet-name>displayThumb</servlet-name>
+       <url-pattern>/thumb</url-pattern>
+     </servlet-mapping>
+     
+     <!-- PDFOpener component -->
+	<servlet>
+       <servlet-name>PDFOpener</servlet-name>
+       <servlet-class>au.gov.nsw.records.digitalarchive.servlet.PDFOpener</servlet-class>
+     </servlet>
+     <servlet-mapping>
+       <servlet-name>PDFOpener</servlet-name>
+       <url-pattern>/doc_opener</url-pattern>
+     </servlet-mapping>
+     
+      <!-- TextFileOpener component -->
+	<servlet>
+       <servlet-name>TXTOpener</servlet-name>
+       <servlet-class>au.gov.nsw.records.digitalarchive.servlet.TextFileOpener</servlet-class>
+     </servlet>
+     <servlet-mapping>
+       <servlet-name>TXTOpener</servlet-name>
+       <url-pattern>/txt_opener</url-pattern>
+     </servlet-mapping>
+	
+	 <!-- PDFImageOpener component -->
+	<servlet>
+       <servlet-name>PDFImageOpener</servlet-name>
+       <servlet-class>au.gov.nsw.records.digitalarchive.servlet.PDFImageOpener</servlet-class>
+     </servlet>
+     <servlet-mapping>
+       <servlet-name>PDFImageOpener</servlet-name>
+       <url-pattern>/pdf_image_opener</url-pattern>
+     </servlet-mapping>
+    
+    <!-- Document Searcher component -->
+	<servlet>
+       <servlet-name>DocSearcher</servlet-name>
+       <servlet-class>au.gov.nsw.records.digitalarchive.servlet.DocumentSearcher</servlet-class>
+     </servlet>
+     <servlet-mapping>
+       <servlet-name>DocSearcher</servlet-name>
+       <url-pattern>/doc_search</url-pattern>
+     </servlet-mapping>
+     
+    <!-- TextFileOpener component -->
+	<servlet>
+       <servlet-name>TextFileReader</servlet-name>
+       <servlet-class>au.gov.nsw.records.digitalarchive.servlet.TextFileReader</servlet-class>
+     </servlet>
+     <servlet-mapping>
+       <servlet-name>TextFileReader</servlet-name>
+       <url-pattern>/txt_reader</url-pattern>
+     </servlet-mapping>
+	
+	 <!--JSONRPC component-->
+	<servlet>
+    	  <servlet-name>JSONRPCServlet</servlet-name>
+    	  <servlet-class>org.jabsorb.JSONRPCServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	  <servlet-name>JSONRPCServlet</servlet-name>
+    	  <url-pattern>/JSON-RPC</url-pattern>
+  	</servlet-mapping>
+
+	 <!-- Struts action servlet-->		
+	  <servlet>
+	    <servlet-name>action</servlet-name>
+	    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+	    <init-param>
+	      <param-name>config</param-name>
+	      <param-value>/WEB-INF/struts-config.xml</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>debug</param-name>
+	      <param-value>3</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>detail</param-name>
+	      <param-value>3</param-value>
+	    </init-param>
+	    <init-param>
+                <param-name>listings</param-name>
+                <param-value>false</param-value>
+            </init-param>
+	    <load-on-startup>0</load-on-startup>
+	  </servlet>  
+	  
+	  <error-page>
+        <error-code>500</error-code>
+        <location>/server_error.jsp</location>
+      </error-page>
+      
+      <error-page>
+        <error-code>404</error-code>
+        <location>/file_not_found.jsp</location>
+      </error-page>   
+	  
+	  <servlet-mapping>
+	    <servlet-name>action</servlet-name>
+	    <url-pattern>*.do</url-pattern>
+	  </servlet-mapping>
+  
+  	 <!--welcome file-->
+	<welcome-file-list>
+	  <welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
+

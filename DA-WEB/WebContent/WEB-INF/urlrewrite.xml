@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+<urlrewrite>
+	<rule>
+        <from>^/main$</from>
+        <to>/index.jsp?selected=search</to>
+    </rule>
+    <rule>
+        <from>^/about$</from>
+        <to>/about.jsp?selected=about</to>
+    </rule>
+    <rule>
+        <from>/download/([0-9]+)</from>
+        <to>/pub.do?method=fileDownload&amp;id=$1</to>
+    </rule>
+    <rule>
+        <from>/download/([0-9]+).pdf</from>
+        <to>/pub.do?method=fileDownload&amp;id=$1</to>
+    </rule>
+    <rule>
+        <from>^/search$</from>
+        <to>/searchAction.do</to>
+    </rule>
+    <rule>
+        <from>/search.xml</from>
+        <to>/searchAction.do?xml=true</to>
+    </rule>
+    <rule>
+        <from>^/agency_register$</from>
+        <to>/register.jsp?selected=register</to>
+    </rule>
+    <rule>
+        <from>^/register$</from>
+        <to>/reg.do?method=register</to>
+    </rule>
+    <rule>
+        <from>^/register_success$</from>
+        <to>/register_success.jsp</to>
+    </rule>
+    <rule>
+        <from>^/agency_login$</from>
+        <to>/login.jsp?selected=login</to>
+    </rule>
+    <rule>
+        <from>^/privacy$</from>
+        <to>/privacy.jsp</to>
+    </rule>
+    <rule>
+        <from>^/faq$</from>
+        <to>/faq.jsp</to>
+    </rule>
+     <rule>
+        <from>^/disclaimer$</from>
+        <to>/disclaimer.jsp</to>
+    </rule>
+    <rule>
+        <from>^/api$</from>
+        <to>/api.jsp</to>
+    </rule>
+    <rule>
+        <from>^/logout$</from>
+        <to>/logout.do</to>
+    </rule>
+    <rule>
+        <from>^/my_publications$</from>
+        <to>/dashboard.do?method=home</to>
+    </rule>
+    <rule>
+        <from>^/publication$</from>
+        <to>/publication/index.jsp</to>
+    </rule>
+    <rule>
+        <from>/publication/([0-9]+).txt</from>
+        <to>/pub.do?method=publicationText&amp;id=$1</to>
+    </rule>
+     <rule>
+        <from>/publication/([0-9]+).pdf</from>
+        <to>/pub.do?method=fileDownload&amp;id=$1</to>
+    </rule>
+    <rule>
+        <from>/publication/([0-9]+).json</from>
+        <to>/pub.do?method=publicationJSON&amp;id=$1</to>
+    </rule>
+    <rule>
+        <from>/publication.json</from>
+        <to>/pub.do?method=allPublicationJSON</to>
+    </rule>
+    <rule>
+        <from>/publication/([0-9]+)</from>
+        <to>/pub.do?method=openPublication&amp;id=$1</to>
+    </rule>
+    <rule>
+        <from>^/my_details$</from>
+        <to>/dashboard.do?method=myDetails</to>
+    </rule>
+    <rule>
+        <from>^/pwd_reset$</from>
+        <to>/member.do?method=getPwd</to>
+    </rule>
+    <rule>
+        <from>^/new_publication$</from>
+        <to>/pub.do?method=newPublication</to>
+    </rule>
+    <rule>
+        <from>/agency.json</from>
+        <to>/agency.do?method=agencyJSON</to>
+    </rule>
+    <rule>
+        <from>^/agency$</from>
+        <to>/agency/index.jsp</to>
+    </rule>
+  	<rule>
+        <from>/agency/([0-9]+).json</from>
+        <to>/pub.do?method=agencyJSON&amp;agency=$1</to>
+    </rule>
+    <rule>
+        <from>/agency/([0-9]+)</from>
+        <to>/agency/agency_cloud.jsp?agency=$1</to>
+    </rule>
+    <rule>
+        <from>/my_publications/delete/([0-9]+)</from>
+        <to>/pub.do?method=dPublication&amp;id=$1</to>
+    </rule>
+  <outbound-rule>
+        <note>
+            The outbound-rule specifies that when response.encodeURL is called (if you are using JSTL c:url)
+            the url /rewrite-status will be rewritten to /test/status/.
+
+            The above rule and this outbound-rule means that end users should never see the
+            url /rewrite-status only /test/status/ both in their location bar and in hyperlinks
+            in your pages.
+        </note>
+        <from>/rewrite-status</from>
+        <to>/test/status/</to>
+    </outbound-rule>
+    <!--
+    INSTALLATION
+
+        in your web.xml add...
+
+     EXAMPLES
+
+     Redirect one url
+        <rule>
+            <from>/some/old/page.html</from>
+            <to type="redirect">/very/new/page.html</to>
+        </rule>
+
+    Redirect a directory
+        <rule>
+            <from>/some/olddir/(.*)</from>
+            <to type="redirect">/very/newdir/$1</to>
+        </rule>
+
+    Clean a url
+        <rule>
+            <from>/products/([0-9]+)</from>
+            <to>/products/index.jsp?product_id=$1</to>
+        </rule>
+    eg, /products/1234 will be passed on to /products/index.jsp?product_id=1234 without the user noticing.
+
+    Browser detection
+        <rule>
+            <condition name="user-agent">Mozilla/[1-4]</condition>
+            <from>/some/page.html</from>
+            <to>/some/page-for-old-browsers.html</to>
+        </rule>
+    eg, will pass the request for /some/page.html on to /some/page-for-old-browsers.html only for older
+    browsers whose user agent srtings match Mozilla/1, Mozilla/2, Mozilla/3 or Mozilla/4.
+
+    Centralised browser detection
+        <rule>
+            <condition name="user-agent">Mozilla/[1-4]</condition>
+            <set type="request" name="browser">moz</set>
+        </rule>
+    eg, all requests will be checked against the condition and if matched
+    request.setAttribute("browser", "moz") will be called.
+
+    -->
+
+</urlrewrite>
+
