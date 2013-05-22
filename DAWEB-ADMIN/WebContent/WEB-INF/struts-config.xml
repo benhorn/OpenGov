@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <form-beans>
+  	    <form-bean name="archivistLoginForm" type="au.gov.nsw.records.digitalarchive.struts.form.ArchivistLoginForm"/>
+  	    <form-bean name="PublicationForm" type="au.gov.nsw.records.digitalarchive.struts.form.PublicationForm"/>
+  	    <form-bean name="memberForm" type="au.gov.nsw.records.digitalarchive.struts.form.MemberForm"/>
+  </form-beans>
+  <global-forwards>
+  		<forward name="welcome" path="/login.jsp"/>
+        <forward name="exit" path="/admin_pages/toLogin.jsp"/>
+    	<forward name="addArchivist" path="/admin_pages/newArchivist.jsp" />
+  		<forward name="sorry" path="/Admin/sorry.jsp"/>
+  </global-forwards>
+
+  <action-mappings>
+  <action
+      path="/archivist"
+      scope="session"
+      parameter="method"
+      type="au.gov.nsw.records.digitalarchive.struts.action.ArchivistAction">
+      		<forward name="home" path="/admin_pages/index.jsp"/>
+      		<forward name="loadArchivist" path="/admin_pages/archivistList.jsp"/>
+			<forward name="adminDetail" path="/admin_pages/admindetail.jsp"/>
+    </action>
+  	 <action
+      path="/member"
+      scope="session"
+      name="memberForm"
+      parameter="method"
+      type="au.gov.nsw.records.digitalarchive.struts.action.MemberAction">
+      		<forward name="home" path="/admin_pages/index.jsp"/>
+      		<forward name="loadMember" path="/admin_pages/memberlist.jsp"/>
+			<forward name="memberdetail" path="/admin_pages/memberdetail.jsp"/>
+    </action>
+    <action
+      path="/pub"
+      scope="session"
+      name="PublicationForm"
+      parameter="method"
+      type="au.gov.nsw.records.digitalarchive.struts.action.PublicationAction">
+      		<forward name="home" path="/admin_pages/index.jsp"/>
+			<forward name="metadata" path="/admin_pages/publicationDetails.jsp"/>
+			<forward name="editMetadata" path="/admin_pages/metadataEdit.jsp"/>
+			<forward name="loadPublication" path="/admin_pages/publicationList.jsp"/>
+			<forward name="login" path="/admin_pages/toLogin.jsp"/>
+    </action>
+  	<action
+      path="/auth"
+      parameter="method"
+      input="/login.jsp"
+      name="archivistLoginForm"
+      scope="request"
+      validate="true"
+      type="au.gov.nsw.records.digitalarchive.struts.action.UserAuthenticationAction">
+      <forward name="success" path="/admin_pages/index.jsp" redirect="true"/>
+    </action>
+     <action 
+    	path="/download"
+		type="au.gov.nsw.records.digitalarchive.struts.action.FileDownloadAction">
+ 	</action>
+    <action
+        path="/logout"
+        type="au.gov.nsw.records.digitalarchive.struts.action.LogoutAction"
+        scope="request">
+        <forward name="logout" path="/admin_pages/toLogin.jsp"/>
+     </action>
+ </action-mappings>
+
+  <message-resources parameter="au.gov.nsw.records.digitalarchive.struts.resources.resources" />
+  
+   <!--struts-menu plug-in-->
+  <plug-in className="net.sf.navigator.menu.MenuPlugIn">
+    <set-property property="menuConfig" value="/WEB-INF/menu-config.xml"/>
+  </plug-in>
+  
+  <!--Validator-->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" 
+                  value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml" />
+  </plug-in>
+      
+</struts-config>
+

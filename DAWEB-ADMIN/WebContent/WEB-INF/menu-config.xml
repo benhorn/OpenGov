@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuConfig>
+	<Displayers>
+        <Displayer name="DropDown" 
+                   type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>         				   
+	</Displayers>
+	<Menus>
+	    <Menu name="AdminMenu" title="OpenGov CMS Menu" description="OpenGov CMS Menu" width="200">
+	       <Item name="menu1" title="Member" image="images/icon1.gif" location="member.do?method=loadMember"/>
+	       <Item name="menu2" title="Publications" image="images/icon2.gif" location="pub.do?method=submittedPublication"/>	             	             	             	    
+	       <Item name="menu3" title="System-user" image="images/icon6.gif" location="archivist.do?method=loadArchivist"/>
+	       <Item name="menu4" title="Logout" image="images/icon12.gif" location="logout.do"/>	             
+	    </Menu>	   
+	</Menus>
+</MenuConfig>
