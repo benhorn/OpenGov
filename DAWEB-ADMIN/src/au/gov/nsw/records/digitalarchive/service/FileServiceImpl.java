@@ -3,7 +3,7 @@ package au.gov.nsw.records.digitalarchive.service;
 import java.io.File;
 import java.util.List;
 
-import org.apache.lucene.benchmark.byTask.utils.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -179,6 +179,7 @@ public class FileServiceImpl extends BaseLog implements FileService
 		}else
 		{
 	    	  logger.info("In class FileServiceImpl:cleanUpInbox() - Unable to delete directory: " + inputFile.getInboxUrl());
+	    	result = false;
 		}
 		
 		return result;
