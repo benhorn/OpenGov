@@ -175,11 +175,12 @@ public class FileServiceImpl extends BaseLog implements FileService
 		{
 			File inboxFile = new File(inputFile.getInboxUrl());
 			FileUtils.deleteDirectory(new File(inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - inputFile.getFileName().length())));
+	    	logger.info("\nIn class FileServiceImpl:cleanUpInbox() - Delete directory: " + inputFile.getInboxUrl() + "success.\n");
 			result = true;
 		}else
 		{
 	    	  logger.info("In class FileServiceImpl:cleanUpInbox() - Unable to delete directory: " + inputFile.getInboxUrl());
-	    	result = false;
+	    	  result = false;
 		}
 		
 		return result;
