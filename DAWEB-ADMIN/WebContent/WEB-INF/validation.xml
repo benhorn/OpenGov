@@ -1,0 +1,23 @@
+<form-validation>
+	<global>
+	   <constant>
+	       <constant-name>phone</constant-name>
+	       <constant-value>^\(?(\d{3})\)?[-| ]?(\d{8})$</constant-value>
+	   </constant>
+	</global>
+	<formset>
+		<form name="adminLoginForm">
+			<field
+				property="userName"
+				depends="required">
+				<msg name="required" key="form.loginname.required" />
+			</field>
+			<field
+				property="password"
+				depends="required">
+				<msg name="required" key="form.password.required" />
+			</field>
+		</form>								
+	</formset>
+		
+</form-validation>
