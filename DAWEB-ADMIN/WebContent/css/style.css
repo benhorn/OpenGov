@@ -1,0 +1,47 @@
+#navigate a{font-family: Verdana;font-style : normal ;font-size : 10pt; font-weight :bold;text-decoration : none; color :#400080;margin-left:30% }
+#navigate a:hover{font-family: Verdana;font-style : normal ;font-size : 10pt; font-weight :bold;text-decoration : none; color :#FFFFFF ;margin-left:30%}
+h1{ 
+	font-family: Verdana;
+	font-style: normal;
+	font-size: 16pt; 
+	font-weight: bold;
+	text-align: center;
+	margin-left: 20px;
+	color:#400080}
+h2{ font-family: Arial;font-style : normal ;font-size : 14pt; font-weight :bold;text-align : center;margin:0;margin-right:5px;padding:0 }
+p{ font-family: Verdana;font-style : normal ;font-size : 10pt; font-weight :normal;text-align : left; text-indent : 1em;margin-left:20px}
+
+
+.content table {border-collapse: collapse; border-color: #999999;}
+.content {font-family: verdana,arial,helvetica,sans-serif; font-size: 12px;}
+.content td {font-family: verdana,arial,helvetica,sans-serif; font-size: 12px;vertical-align: top; padding: 2px; border-color: #999999;}
+.content tr.theader {background-color: #003399; color: #ffffff; text-transform: uppercase; font-weight: bold;}
+
+#contentFunctions td {padding: 20px}
+#contentFunctions a:link {font-weight: bold; color: #3333CC; text-decoration :none}
+#contentFunctions a:visited {font-weight: bold; color: #3333CC; text-decoration: none}
+#contentFunctions a:active {font-weight: bold; color: #3333CC; text-decoration: none}
+#contentFunctions a:hover {font-weight: bold; color: #666666; text-decoration: none}
+
+div.loginForm {
+	margin-top: 2em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	background-color: #EFEFEF;
+	border-top: solid 2px #5A31A5;
+	border-bottom: solid 2px #5A31A5;
+}
+
+div.loginForm p {
+	font-size: 15px;
+}
+
+div.loginForm table {
+	margin-top: 0em;
+	margin-bottom: 0em;
+}
+
+div.loginForm table td input {
+	font-size: 15px	;
+}
+
