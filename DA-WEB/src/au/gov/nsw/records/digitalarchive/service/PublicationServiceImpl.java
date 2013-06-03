@@ -242,4 +242,11 @@ public class PublicationServiceImpl extends BaseLog implements PublicationServic
 		return uList;
 	}
 	
+//	public static void main(String[] args) throws Exception
+//	{
+//		PublicationService ps = new PublicationServiceImpl();
+//		Publication pub = ps.loadPublication(12707);
+//		System.out.println(ps.listFilesViaPublication(pub).size());
+//	}
+//	
 }

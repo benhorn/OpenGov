@@ -179,8 +179,8 @@ public class FileServiceImpl extends BaseLog implements FileService
 			result = true;
 		}else
 		{
-	    	  logger.info("In class FileServiceImpl:cleanUpInbox() - Unable to delete directory: " + inputFile.getInboxUrl());
-	    	  result = false;
+	    	 logger.info("In class FileServiceImpl:cleanUpInbox() - Unable to delete directory: " + inputFile.getInboxUrl());
+	    	 result = false;
 		}
 		
 		return result;

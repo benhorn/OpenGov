@@ -66,7 +66,6 @@ import au.gov.nsw.records.digitalarchive.service.PublisherPublicationServiceImpl
 import au.gov.nsw.records.digitalarchive.struts.form.PublicationForm;
 import au.gov.nsw.records.digitalarchive.system.AUDate;
 import au.gov.nsw.records.digitalarchive.system.LuceneDateFormatter;
-
 public class PublicationAction extends BaseAction 
 {
 	LuceneDateFormatter ldf = new LuceneDateFormatter();
@@ -217,15 +216,12 @@ public class PublicationAction extends BaseAction
 						new File(textLocation).mkdirs();
 
 						File pairTreeDIR = new File(pairTreeURL);
-
-						System.out.println("Readable: " + inboxFile.canRead());
-						System.out.println("Writeable: " + inboxFile.canWrite());
-						System.out.println("Executable: " + inboxFile.canExecute());
-
 						File pairTreePDF = new File(pairTreeURL + "document.pdf");
 						renameFile (inboxFile, pairTreePDF);
-
-						fs.cleanUpInbox(uFile); // cleans up the inbox
+						Thread.sleep(1000);
+						fs.deletePhysicalFiles(uFile); // cleans up the inbox
+						Thread.sleep(1000);
+						fs.cleanUpInbox(uFile);
 //						System.out.println("\n\n\n"+inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - uFile.getFileName().length()));
 //						FileUtils.deleteDirectory(new File(inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - uFile.getFileName().length())));
 
@@ -678,9 +674,26 @@ public class PublicationAction extends BaseAction
 					FileService fs = new FileServiceImpl();
 					KeywordPublicationService kps = new KeywordPublicationServiceImpl();
 					Publication publication = ps.loadPublication(id);
+					List<UploadedFile> fileList = ps.listFilesViaPublication(publication);
+					System.out.println("No. of files " + fileList.size() + "");
 					boolean keyPub_delete_status = kps.deleteKeyPubViaPublication(publication);
 					boolean file_delete_status = fs.deleteFileViaPublication(publication);
 					boolean publication_delete_status = ps.delPublication(id);
+					for (int i = 0; i < fileList.size(); i++) 
+					{
+						fs.deletePhysicalFiles(fileList.get(i));
+//						if(fileDeleted)
+//						{
+//							fs.cleanUpInbox(fileList.get(i));
+//						}
+						Thread.sleep(1000);
+					}
+					
+					for (int j = 0; j < fileList.size(); j++) {
+						fs.cleanUpInbox(fileList.get(j));
+						Thread.sleep(1000);
+					}
+					
 					/*if (file_delete_status && publication_delete_status && keyPub_delete_status)
 					{
 						msgs.add("publication.delete", new ActionMessage("publication.delete.success"));
@@ -816,15 +829,9 @@ public class PublicationAction extends BaseAction
 						new File(textLocation).mkdirs();
 
 						File pairTreeDIR = new File(pairTreeURL);
-
-//						System.out.println("Readable: " + inboxFile.canRead());
-//						System.out.println("Writeable: " + inboxFile.canWrite());
-//						System.out.println("Executable: " + inboxFile.canExecute());
-
-						System.out.println("File path " + inboxFile.getAbsolutePath());
-
 						File pairTreePDF = new File(pairTreeURL + "document.pdf");
 						renameFile (inboxFile, pairTreePDF);
+						Thread.sleep(1000);
 						
 						fs.cleanUpInbox(uFile); // cleans up the inbox
 						/***For migration only**/
@@ -1156,9 +1163,14 @@ public class PublicationAction extends BaseAction
 						if (status && physical_status)
 						{
 							if (("edit").equals(pageType))
+							{
+								fs.cleanUpInbox(up);
 								forward = new ActionForward("/agency_pages/publicationEdit.jsp?id=" + pubID);
+							}
 							else
+							{
 								forward = new ActionForward("/agency_pages/newPublication.jsp?id=" + pubID);
+							}
 						}
 					}
 				}catch(Exception ex)
@@ -1305,21 +1317,6 @@ public class PublicationAction extends BaseAction
 	      }
 	  }
 	}
-	
-	private boolean deleteInboxDirectory(File path) {
-	    if (path.exists()) {
-	        File[] files = path.listFiles();
-	        for (int i = 0; i < files.length; i++) {
-	            if (files[i].isDirectory()) {
-	            	deleteInboxDirectory(files[i]);
-	            } else {
-	                files[i].delete();
-	            }
-	        }
-	    }
-	    return (path.delete());
-	}
-	
 	
 	private static final double BASE = 1024, KB = BASE, MB = KB * BASE, GB = MB * BASE;
     private static final DecimalFormat df = new DecimalFormat("#.##");

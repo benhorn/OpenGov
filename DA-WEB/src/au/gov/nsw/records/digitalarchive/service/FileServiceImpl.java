@@ -1,8 +1,14 @@
 package au.gov.nsw.records.digitalarchive.service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,7 +18,6 @@ import au.gov.nsw.records.digitalarchive.ORM.HibernateUtil;
 import au.gov.nsw.records.digitalarchive.ORM.Publication;
 import au.gov.nsw.records.digitalarchive.ORM.UploadedFile;
 import au.gov.nsw.records.digitalarchive.base.BaseLog;
-import org.apache.commons.io.FileUtils;
 
 
 public class FileServiceImpl extends BaseLog implements FileService
@@ -137,31 +142,46 @@ public class FileServiceImpl extends BaseLog implements FileService
 		      logger.info("In class FileServiceImpl:deletePhysicalFiles() - write protected: " + inputFile.getFileName().trim());
 
 		    // If it is a directory, make sure it is empty
-		    if (targetFile.isDirectory()) {
+		if (targetFile.isDirectory()) {
 		      String[] files = targetFile.list();
 		      if (files.length > 0)
 		    	  logger.info("In class FileServiceImpl:deletePhysicalFiles() - directory not empty: " + inputFile.getFileName().trim());
-		    }
-		 result = targetFile.delete();
-		 return result;
+		}
+		targetFile.setWritable(true);
+		result = targetFile.delete();		
+		logger.info("In class FileServiceImpl:deletePhysicalFiles() - deleting file " + inputFile.getFileName().trim() + " " + result);
+		return result;
 	}
 	
 	@Override
-	public boolean cleanUpInbox(UploadedFile inputFile) throws Exception {
-
-		boolean fileDeleted = deletePhysicalFiles(inputFile);
-		boolean result = false;
-		if (fileDeleted)
-		{
-			File inboxFile = new File(inputFile.getInboxUrl());
-			FileUtils.deleteDirectory(new File(inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - inputFile.getFileName().length())));
-			result = true;
-		}else
-		{
-	    	  logger.info("In class FileServiceImpl:cleanUpInbox() - Unable to delete directory: " + inputFile.getInboxUrl());
+	public void cleanUpInbox(UploadedFile inputFile)
+	{
+		File inboxFile = new File(inputFile.getInboxUrl());
+		File inboxDIR =  new File(inboxFile.getAbsolutePath().substring(0, inboxFile.getAbsolutePath().length() - inputFile.getFileName().length()));
+		inboxDIR.setWritable(true);
+		try {	
+			FileUtils.forceDelete(inboxDIR);
 		}
-		
-		return result;
+		catch (IOException e) {
+			logger.info("In class FileServiceImpl:cleanUpInbox()\n");
+			try {
+				FileChannel channel = new RandomAccessFile(inboxFile, "rw").getChannel();
+				FileLock lock = channel.tryLock();
+				 if(lock == null)
+		            {
+		                // File is lock by other application
+		                channel.close();
+		                throw new RuntimeException("\n\n\nTwo instance cant run at a time.\n\n");
+		            }
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("File not found");
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				System.out.println("IOException");
+			}
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

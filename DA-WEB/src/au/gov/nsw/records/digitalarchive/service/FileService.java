@@ -20,7 +20,7 @@ public interface FileService {
 	
 	public boolean deletePhysicalFiles(UploadedFile inputFile) throws Exception;
 	
-	public boolean cleanUpInbox(UploadedFile inputFile) throws Exception;
+	public void cleanUpInbox(UploadedFile inputFile);
 	
 	public boolean deletePhysicalFilesViaPub(Publication publication) throws Exception;
 	

@@ -102,14 +102,14 @@ public class OpenGovLucene{
 			
 			Query searchQuery = query.parse(searchText);
             
-			System.out.println("Searching " + searcher.maxDoc() + " documents.");
-			System.out.println("Query " + searchQuery.toString());
+//			System.out.println("Searching " + searcher.maxDoc() + " documents.");
+//			System.out.println("Query " + searchQuery.toString());
             
 			searcher.search(searchQuery, MultiCollector.wrap(collector, facetsCollector));
             
 			TopDocs docs = collector.topDocs((pageNumber.intValue()-1)*pageSize.intValue(), pageSize.intValue());
 			this.numTotalHits = collector.getTotalHits();
-	        System.out.println("Found " + numTotalHits);
+	    //    System.out.println("Found " + numTotalHits);
 	        Formatter formatter = new SimpleHTMLFormatter("<span class=\"highlighter\">","</span>");
 	        Scorer fragmentScorer = new QueryScorer(searchQuery);
 	        Highlighter highlighter = new Highlighter(formatter, fragmentScorer);
@@ -226,9 +226,9 @@ public class OpenGovLucene{
 			FacetsCollector facetsCollector = new FacetsCollector(facets, reader, taxoReader);
 			
 			Query searchQuery = query.parse(searchText);
-            
-			System.out.println("Searching " + searcher.maxDoc() + " documents.");
-			System.out.println("Query " + searchQuery.toString());
+//            
+//			System.out.println("Searching " + searcher.maxDoc() + " documents.");
+//			System.out.println("Query " + searchQuery.toString());
             
 			searcher.search(searchQuery, MultiCollector.wrap(collector, facetsCollector));
             
@@ -406,7 +406,7 @@ public class OpenGovLucene{
 		}
 		try {
 			String queryText = params.getQuery().trim() + facetCondition; 
-			System.out.println("Facet Condition:" + queryText);
+			//System.out.println("Facet Condition:" + queryText);
 			if (("year").equals(order))
 				return searchTextOrderViaDate(queryText, params.getFacetParams(), params.getPageNo(), params.getPageSize());
 			if (("relevance").equals(order))

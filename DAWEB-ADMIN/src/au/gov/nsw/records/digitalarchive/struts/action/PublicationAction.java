@@ -171,7 +171,6 @@ public class PublicationAction extends BaseAction
 			boolean delete_keypub_status = kps.deleteKeyPubViaPublication(publication);
 			boolean delete_agencypub_status = aps.deleteAgencyPubViaPublication(publication);
 			boolean delete_publisherpub_status = pps.deletePublisherViaPublication(publication);
-			System.out.println("Publication id " + publication.getPublicationId());
 			
 			String publishDay = request.getParameter("publication_day").trim();
 			String publishMonth = request.getParameter("publication_month").trim();
@@ -207,7 +206,6 @@ public class PublicationAction extends BaseAction
 			String[] updatedAgencies = splitAgencies(request.getParameter("agencyNumber"));
 			String[] publisher = splitAgencies(request.getParameter("publisherNumber"));
 			
-			System.out.println(updatedAgencies.length);
 			for(int i = 0; i < updatedKeyword.length; i++)
 			{
 				KeywordPublication keywordPublication = new KeywordPublication();
@@ -520,13 +518,12 @@ public class PublicationAction extends BaseAction
 						System.out.println("Readable: " + inboxFile.canRead());
 						System.out.println("Writeable: " + inboxFile.canWrite());
 						System.out.println("Executable: " + inboxFile.canExecute());
-						
-						//System.out.println("Renamed: " + inboxFile.renameTo(new File(pairTreeDIR, "document.pdf")));
-						
+												
 						File pairTreePDF = new File(pairTreeURL + "document.pdf");
 						renameFile (inboxFile, pairTreePDF);
 						
-						
+						fs.cleanUpInbox(uFile); // cleans up the inbox
+
 						/***For migration only**/
 						TikaWrapper ta = new TikaWrapper();
 						Integer pageNumber = Integer.parseInt(ta.getPageNumber(pairTreeURL + "document.pdf"));

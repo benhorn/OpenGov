@@ -105,6 +105,10 @@
 		type="au.gov.nsw.records.digitalarchive.struts.action.FileDownloadAction">
  	</action>
  	<action 
+    	path="/desktop"
+		type="au.gov.nsw.records.digitalarchive.struts.action.DesktopAction">
+ 	</action>
+ 	<action 
     	path="/file"
 		type="au.gov.nsw.records.digitalarchive.struts.action.UploadedFileAction"
 		parameter="method" 

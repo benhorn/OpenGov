@@ -19,6 +19,10 @@
         <to>/pub.do?method=fileDownload&amp;id=$1</to>
     </rule>
     <rule>
+        <from>/desktop/([0-9]+)</from>
+        <to>/desktop.do?id=$1</to>
+    </rule>
+    <rule>
         <from>^/search$</from>
         <to>/searchAction.do</to>
     </rule>
