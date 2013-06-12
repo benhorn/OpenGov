@@ -24,11 +24,12 @@ else{
 <%@ taglib uri="/struts-bean" prefix="bean" %>
 <%@ taglib uri="/struts-html" prefix="html" %>
 <%@ taglib uri="/struts-logic" prefix="logic" %> 
-<%@page import="au.gov.nsw.records.digitalarchive.base.*"%>
-<%@page import="au.gov.nsw.records.digitalarchive.service.*"%>
-<%@page import="au.gov.nsw.records.digitalarchive.ORM.*"%>
-<%@page import="java.io.*"%>
+<%@ page import="au.gov.nsw.records.digitalarchive.base.*"%>
+<%@ page import="au.gov.nsw.records.digitalarchive.service.*"%>
+<%@ page import="au.gov.nsw.records.digitalarchive.ORM.*"%>
+<%@ page import="java.io.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.awt.Desktop" %>
 <%
 	FileService fs = new FileServiceImpl();
 	KeywordService ks = new KeywordServiceImpl();
@@ -230,7 +231,7 @@ function out()
 </div>
 
  <ul class="DocumentActions"><li>
-  <a href="/download/<%=fileID%>">
+  <a href="/desktop/<%=fileID%>">
     <span><%=thisFile.getFileName()%></span>
   </a>
   <b class="DownloadMenuItemInfo">
