@@ -129,13 +129,10 @@ Identifying any errors or issues is part of the moderation process. You’ll be 
 the registration can be authorised.</p>
 <p><i>I think I submitted a publication, why is it not appearing on OpenGov’s home page?</i></p>
 <p>A publication is by default in a “draft” stage and will need to be submitted for moderation before becoming live to the public (except for “Privileged Users”). 
-The metadata form contains some mandatory fields denoted by a (*) and at least one file needs to be attached to the form before submitting it for moderation. 
+The metadata form contains some mandatory fields denoted by an asterisk (*) and at least one file needs to be attached to the form before submitting it for moderation. 
 User may save their progress anytime by clicking on the “Save draft” button and come back to finalize their work. 
 A session of 15 minutes is applied, once the session times out user will lose their unsaved metadata information and needs to log back 
 into the system to re-access the unfinished publication. An email will be sent to notify if the publication is live.</p>
 </div>
-
-
-
 <jsp:include page="jspincludes/footer.jsp"/>
 </body></html>
