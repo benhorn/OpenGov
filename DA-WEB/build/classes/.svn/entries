@@ -2,7 +2,7 @@
 
 dir
 327
-https://srnswda.jira.com/svn/DA/WebAPI/DA-WEB/build/classes
+https://srnswda.jira.com/svn/DA/WebAPI/DA-WEB/src
 https://srnswda.jira.com/svn
 
 
@@ -25,4 +25,109 @@ kzhai
 
 
 e6edf6fb-f266-4316-afb4-e53d95876a76
+
+au
+dir
+
+hibernate_filbert.cfg.xml
+file
+
+
+
+
+2012-05-10T05:59:47.341597Z
+582421c044b0da655385905ae1bfebba
+2012-05-14T01:31:14.878033Z
+327
+kzhai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+984
+
+log4j.properties
+file
+
+
+
+
+2012-05-11T05:42:40.309500Z
+cf297f85387cccaddfb3c03efaa8a75b
+2012-05-14T01:31:14.878033Z
+327
+kzhai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+225
+
+hibernate.cfg.xml
+file
+1684
+
+
+
+2013-01-30T04:46:49.489755Z
+3b7c1dc6dead891a009bbd6aded69efb
+2012-10-09T22:59:01.330051Z
+1314
+kzhai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2519
 
